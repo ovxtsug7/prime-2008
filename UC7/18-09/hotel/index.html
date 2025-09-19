@@ -4,44 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reserva de Hotel</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Reserva de Quartos</h1>
 
-  <form id="formReserva">
-    <label>Nome do Hóspede:</label>
-    <input type="text" id="nome" required>
-    <br><br>
-
-    <label>Tipo de Quarto:</label>
-    <select id="tipoQuarto" required>
-      <option value="">Selecione...</option>
-      <option value="simples">Simples - R$100/dia</option>
-      <option value="duplo">Duplo - R$150/dia</option>
-      <option value="suite">Suíte - R$200/dia</option>
-    </select>
-    <br><br>
-
-    <label>Café da manhã:</label>
-    <input type="radio" name="cafe" value="Sim" required> Sim
-    <input type="radio" name="cafe" value="Não" required> Não
-    <br><br>
-
-    <label>Data de Entrada:</label>
-    <input type="date" id="entrada" required>
-    <br><br>
-
-    <label>Data de Saída:</label>
-    <input type="date" id="saida" required>
-    <br><br>
-
-    <button type="submit">Reservar</button>
-  </form>
-
-  <h2>Lista de Reservas</h2>
-  <ul id="listaReservas"></ul>
-
-  <script src="script.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
