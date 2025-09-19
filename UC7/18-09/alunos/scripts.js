@@ -1,3 +1,5 @@
+let contadorAlunos = 0;
+
 function cadastrarAluno(e) {
     e.preventDefault() //Impedir reload
 
@@ -27,11 +29,16 @@ function cadastrarAluno(e) {
 
     aluno.innerText = `Nome: ${nome} | Email: ${email} | Curso: ${curso} | Modalidade: ${modalidade}`
 
+    if (modalidade === 'EAD') {
+        aluno.style.backgroundColor = '#f0f0f0';
+    }
+
     listaAlunos.appendChild(aluno)
 
     // Resetar o Formulário
+    document.querySelector('form').reset();
+
     // Contabilizar quantos alunos foram cadastrados
-    // Estilizar os alunos da modalidade EAD (fundo de cor diferente)
-
-
+    contadorAlunos++;
+    document.getElementById("contador").innerText = `Total de alunos cadastrados: ${contadorAlunos}`;
 }
