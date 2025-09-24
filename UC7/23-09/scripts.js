@@ -1,34 +1,56 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('cadastroForm');
-    const dadosDiv = document.getElementById('dadosUsuario');
+function cadastrarLivro(event) {
+  event.preventDefault();
 
-    displayStoredData();
+  const titulo = document.getElementById('titulo').value;
+  const autor = document.getElementById('autor').value;
+  const ano = document.getElementById('ano').value;
+  const genero = document.getElementById('genero').value;
+  const isbn = document.getElementById('isbn').value;
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+  const livro = { titulo, autor, ano, genero, isbn };
 
-        const nome = document.getElementById('nome').value;
-        const idade = document.getElementById('idade').value;
-        const altura = document.getElementById('altura').value;
+  // Pega os livros existentes
+  const livros = JSON.parse(localStorage.getItem('livros') || '[]');
+  livros.push(livro);
 
-        if (nome && idade && altura) {
-            const userData = { nome, idade, altura };
-            localStorage.setItem('userData', JSON.stringify(userData));
-            alert('Dados cadastrados com sucesso!');
-            form.reset();
-            displayStoredData();
-        } else {
-            alert('Por favor, preencha todos os campos.');
-        }
-    });
+  localStorage.setItem('livros', JSON.stringify(livros));
 
-    function displayStoredData() {
-        const storedData = localStorage.getItem('userData');
-        if (storedData) {
-            const userData = JSON.parse(storedData);
-            dadosDiv.innerHTML = `<p>Nome: ${userData.nome}</p><p>Idade: ${userData.idade}</p><p>Altura: ${userData.altura} cm</p>`;
-        } else {
-            dadosDiv.innerHTML = '<p>Nenhum dado armazenado.</p>';
-        }
-    }
-});
+  // Limpa o formulário
+  event.target.reset();
+
+  // Atualiza a tabela
+  exibirLivros();
+}
+
+function exibirLivros() {
+  const livros = JSON.parse(localStorage.getItem('livros') || '[]');
+  const tbody = document.querySelector('#tabela-livros tbody');
+  tbody.innerHTML = '';
+
+  livros.forEach((livro, index) => {
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `
+      <td>${livro.titulo}</td>
+      <td>${livro.autor}</td>
+      <td>${livro.ano}</td>
+      <td>${livro.genero}</td>
+      <td>${livro.isbn}</td>
+      <td><button onclick="verDetalhes(${index})">Ver detalhes</button></td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+function verDetalhes(index) {
+  const livros = JSON.parse(localStorage.getItem('livros') || '[]');
+  const livro = livros[index];
+
+  alert(
+    `Título: ${livro.titulo}\nAutor: ${livro.autor}\nAno: ${livro.ano}\nGênero: ${livro.genero}\nISBN: ${livro.isbn}`
+  );
+}
+
+// Carrega ao abrir a página
+window.onload = exibirLivros;
