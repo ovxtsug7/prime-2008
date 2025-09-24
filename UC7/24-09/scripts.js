@@ -1,67 +1,65 @@
 function cadastrarLivro(e) {
-    e.preventDefault();
+            e.preventDefault();
 
-    const titulo = document.getElementById("campo-titulo").value;
-    const autor = document.getElementById("campo-autor").value;
-    const ano = parseInt(document.getElementById("campo-ano").value);
-    const genero = document.getElementById("campo-genero").value;
-    const isbn = document.getElementById("campo-isbn").value;
+            const titulo = document.getElementById("campo-titulo").value;
+            const autor = document.getElementById("campo-autor").value;
+            const ano = parseInt(document.getElementById("campo-ano").value);
+            const genero = document.getElementById("campo-genero").value;
+            const isbn = document.getElementById("campo-isbn").value;
 
-    const livro = { titulo, autor, ano, genero, isbn };
+            const livro = { titulo, autor, ano, genero, isbn };
 
-    const livros = JSON.parse(localStorage.getItem("livros")) || [];
+            const livros = JSON.parse(localStorage.getItem("livros")) || [];
 
-    livros.push(livro);
-    localStorage.setItem("livros", JSON.stringify(livros));
+            livros.push(livro);
+            localStorage.setItem("livros", JSON.stringify(livros));
 
-    e.target.reset();
-    exibirLivros();
-}
+            e.target.reset();
+            exibirLivros();
+        }
 
-function exibirLivros() {
-    const livros = JSON.parse(localStorage.getItem("livros")) || [];
-    const tbody = document.getElementById("tabela-livros-body");
+        function exibirLivros() {
+            const livros = JSON.parse(localStorage.getItem("livros")) || [];
+            const tbody = document.getElementById("tabela-livros-body");
 
-    if (!tbody) return;
+            tbody.innerHTML = "";
 
-    tbody.innerHTML = "";
+            livros.forEach((livro, index) => {
+                const tr = document.createElement("tr");
 
-    livros.forEach((livro, index) => {
-        const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${livro.titulo}</td>
+                    <td>${livro.autor}</td>
+                    <td>${livro.ano}</td>
+                    <td>${livro.genero}</td>
+                    <td>${livro.isbn}</td>
+                    <td>
+                        <button onclick="verDetalhes(${index})">Ver Detalhes</button>
+                        <button onclick="removerLivro(${index})" style="margin-left: 5px; color: red;">Remover</button>
+                    </td>
+                `;
 
-        tr.innerHTML = `
-            <td>${livro.titulo}</td>
-            <td>${livro.autor}</td>
-            <td>${livro.ano}</td>
-            <td>${livro.genero}</td>
-            <td>${livro.isbn}</td>
-            <td>
-                <button onclick="verDetalhes(${index})">Ver Detalhes</button>
-                <button onclick="removerLivro(${index})" style="margin-left: 5px; color: red;">Remover</button>
-            </td>
-        `;
+                tbody.appendChild(tr);
+            });
+        }
 
-        tbody.appendChild(tr);
-    });
-}
+        function verDetalhes(index) {
+            const livros = JSON.parse(localStorage.getItem("livros")) || [];
+            const livro = livros[index];
 
-function verDetalhes(index) {
-    const livros = JSON.parse(localStorage.getItem("livros")) || [];
-    const livro = livros[index];
+            alert(
+                `Título: ${livro.titulo}\nAutor: ${livro.autor}\nAno: ${livro.ano}\nGênero: ${livro.genero}\nISBN: ${livro.isbn}`
+            );
+        }
 
-    alert(
-        `Título: ${livro.titulo}\nAutor: ${livro.autor}\nAno: ${livro.ano}\nGênero: ${livro.genero}\nISBN: ${livro.isbn}`
-    );
-}
+        function removerLivro(index) {
+            const livros = JSON.parse(localStorage.getItem("livros")) || [];
 
-function removerLivro(index) {
-    const livros = JSON.parse(localStorage.getItem("livros")) || [];
+            if (index >= 0 && index < livros.length) {
+                livros.splice(index, 1);
+                localStorage.setItem("livros", JSON.stringify(livros));
+                exibirLivros();
+            }
+        }
 
-    if (index >= 0 && index < livros.length) {
-        livros.splice(index, 1); // Remove 1 item na posição "index"
-        localStorage.setItem("livros", JSON.stringify(livros));
-        exibirLivros();
-    }
-}
-
-window.onload = exibirLivros;
+        window.onload = exibirLivros;
