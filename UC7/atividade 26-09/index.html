@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciador de Tarefas</h1>
+
+        <form id="task-form">
+            <input type="hidden" id="task-id">
+            
+            <label for="nome">Nome da Tarefa:</label>
+            <input type="text" id="nome" required>
+
+            <label for="descricao">Descrição (Opcional):</label>
+            <textarea id="descricao"></textarea>
+
+            <label for="vencimento">Data de Vencimento:</label>
+            <input type="date" id="vencimento" required>
+
+            <label for="status">Status:</label>
+            <select id="status">
+                <option value="Pendente">Pendente</option>
+                <option value="Em Andamento">Em Andamento</option>
+                <option value="Concluída">Concluída</option>
+            </select>
+
+            <button type="submit" id="submit-button">Cadastrar Tarefa</button>
+            <button type="button" id="cancel-button" style="display: none;">Cancelar Edição</button>
+        </form>
+
+        <hr>
+
+        <h2>Tarefas Cadastradas</h2>
+        <table id="task-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Vencimento</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="task-list">
+                </tbody>
+        </table>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

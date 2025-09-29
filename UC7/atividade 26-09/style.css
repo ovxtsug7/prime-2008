@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; 
+    color: #f0f0f0; 
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #2b2b2b;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    color: #e02a2a; 
+    text-align: center;
+}
+
+#task-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #f0f0f0; 
+}
+
+#task-form input[type="text"], 
+#task-form input[type="date"], 
+#task-form select, 
+#task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #3a3a3a; 
+    color: #f0f0f0;
+}
+
+#task-form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    color: white;
+}
+
+#submit-button {
+    background-color: #e02a2a;
+}
+
+#cancel-button {
+    background-color: #880000; 
+}
+
+#task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#task-table th, #task-table td {
+    border: 1px solid #555; 
+    padding: 10px;
+    text-align: left;
+    color: #f0f0f0; 
+}
+
+#task-table th {
+    background-color: #e02a2a; 
+    color: white;
+}
+
+#task-table tr:nth-child(even) {
+    background-color: #3a3a3a;
+}
+#task-table tr:nth-child(odd) {
+    background-color: #2b2b2b;
+}
+
+#task-table button {
+    background-color: #e02a2a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+#task-table button:hover {
+    opacity: 0.8;
+}
+
+
+.status-Pendente { color: #ff6666; font-weight: bold; }
+.status-Em.Andamento { color: #ffcc00; font-weight: bold; }
+.status-Concluída { color: #66ff66; font-weight: bold; }
