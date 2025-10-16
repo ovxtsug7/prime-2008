@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações - Voz da Comunidade</title>
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="/public/css/user.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="sidebar-header">
+                <div class="user-icon" id="sidebar-user-avatar"></div>
+                <span id="sidebar-user-name">Usuário</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="index.html">Suas Votações / Enquetes</a>
+                <a href="create.html">Criar Votação / Enquete</a>
+                <a href="notifications.html" style="background-color: #d0e8ff; font-weight: bold;">Notificações <span id="unread-count-badge" class="badge"></span></a> 
+                <a href="settings.html">Configurações</a>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#">Suporte</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-header">
+            <h1>Suas Notificações</h1>
+            <button class="action-btn" id="mark-all-read-btn" style="margin-left: auto;">Marcar Todas Como Lidas</button>
+        </div>
+        
+        <div class="content-card">
+            <ul class="notification-list" id="notification-list">
+                </ul>
+            <p id="no-notifications" style="text-align: center; color: #777; padding: 20px; display: none;">Você não tem novas notificações.</p>
+        </div>
+    </div>
+
+    <script src="/public/scripts/utils.js"></script>
+    <script src="/public/scripts/user.js"></script> 
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voz da Comunidade - Home</title>
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="/public/css/home.css">
+    <link rel="stylesheet" href="/public/css/user.css"> </head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="sidebar-header">
+                <div class="user-icon" id="sidebar-user-avatar"></div> <span id="sidebar-user-name">Usuário</span> </div>
+            
+            <nav class="sidebar-menu">
+                <a href="index.html" style="background-color: #d0e8ff; font-weight: bold;">Suas Votações / Enquetes</a>
+                <a href="create.html">Criar Votação / Enquete</a>
+                <a href="notifications.html">Notificações <span id="unread-count-badge" class="badge"></span></a> 
+                <a href="settings.html">Configurações</a>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#">Suporte</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-header">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Pesquisar por título, descrição ou categoria...">
+                <button aria-label="Pesquisar">🔍</button>
+            </div>
+
+            <div class="filter-chips-container">
+                </div>
+
+            <button class="filters-button" id="open-filters-modal">
+                Filtros...
+            </button>
+        </div>
+        
+        <div id="polls-list-container">
+            </div>
+
+    </div>
+
+    <div class="modal-overlay" id="filters-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Filtros Avançados</h2>
+                <button class="close-modal-btn">X</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Excluir/Incluir Categorias:</strong></p>
+                <div id="filter-options-list">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button class="action-btn close-modal-btn" id="reset-filters-btn">Limpar Filtros</button>
+                <button class="primary-btn" id="save-filters-btn">Aplicar Filtros</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/public/scripts/utils.js"></script>
+    <script src="/public/scripts/user.js"></script> <script src="/public/scripts/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Nova Proposta - Voz da Comunidade</title>
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="/public/css/create.css">
+    <link rel="stylesheet" href="/public/css/user.css"> </head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="sidebar-header">
+                <div class="user-icon" id="sidebar-user-avatar"></div> <span id="sidebar-user-name">Usuário</span> </div>
+            
+            <nav class="sidebar-menu">
+                <a href="index.html">Suas Votações / Enquetes</a>
+                <a href="create.html" style="background-color: #d0e8ff; font-weight: bold;">Criar Votação / Enquete</a>
+                <a href="notifications.html">Notificações <span id="unread-count-badge" class="badge"></span></a>
+                <a href="settings.html">Configurações</a>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#">Suporte</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-header">
+            <h1>Crie Sua Nova Proposta</h1>
+        </div>
+        
+        <form id="create-poll-form">
+            
+            <div class="form-group">
+                <label>Tipo da Proposta</label>
+                <div class="radio-group">
+                    <input type="radio" id="type-voting" name="poll-type" value="voting" checked>
+                    <label for="type-voting">Votação Simples (Upvote/Downvote)</label>
+                    <input type="radio" id="type-poll" name="poll-type" value="poll">
+                    <label for="type-poll">Enquete (Múltipla Escolha)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="poll-title">Título da Proposta/Enquete</label>
+                <input type="text" id="poll-title" placeholder="Ex: Reforma da quadra da escola" required>
+            </div>
+
+            <div class="form-group">
+                <label for="poll-description">Descrição Detalhada</label>
+                <textarea id="poll-description" placeholder="Descreva sua ideia em detalhes..."></textarea>
+            </div>
+
+            <div class="form-group hidden" id="poll-options-container">
+                <label>Opções da Enquete (Mínimo 2)</label>
+                <div id="options-list">
+                    <div class="option-row" data-option-id="1">
+                        <input type="text" class="poll-option-input" placeholder="Opção 1" required>
+                        <button type="button" class="remove-option-btn hidden">Remover</button>
+                    </div>
+                    <div class="option-row" data-option-id="2">
+                        <input type="text" class="poll-option-input" placeholder="Opção 2" required>
+                        <button type="button" class="remove-option-btn hidden">Remover</button>
+                    </div>
+                </div>
+                <button type="button" id="add-option-btn" class="action-btn">Adicionar Opção</button>
+            </div>
+
+            <div class="form-group hidden" id="multiple-choice-container">
+                <label for="multiple-choice">Permitir Múltipla Escolha?</label>
+                <select id="multiple-choice" required>
+                    <option value="false">Não (Voto único na opção)</option>
+                    <option value="true">Sim (Múltipla Escolha)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="expiration-date">Data Limite de Participação (Expiração)</label>
+                <input type="date" id="expiration-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tags-category">Categoria Principal (Para Filtros)</label>
+                <select id="tags-category" required>
+                    <option value="">Selecione uma Categoria</option>
+                    <option value="educacao">Educação</option>
+                    <option value="infraestrutura">Infraestrutura</option>
+                    <option value="seguranca">Segurança</option>
+                    <option value="cultura">Eventos/Cultura</option>
+                    <option value="meio_ambiente">Meio Ambiente</option>
+                    <option value="saude">Saúde</option>
+                    <option value="transporte">Transporte</option>
+                </select>
+            </div>
+
+            <div class="form-group action-buttons">
+                <button type="submit" class="primary-btn">Publicar Proposta</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script src="/public/scripts/utils.js"></script>
+    <script src="/public/scripts/user.js"></script> <script src="/public/scripts/create.js"></script>
+
+</body>
+</html>

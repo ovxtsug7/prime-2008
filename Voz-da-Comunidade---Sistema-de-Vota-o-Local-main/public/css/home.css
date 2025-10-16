@@ -1,0 +1,349 @@
+/* home.css */
+/* ----------------------- */
+/* AJUSTE GERAL (PARA GARANTIR A ROLAGEM NO MAIN-CONTENT) */
+/* ----------------------- */
+.main-content {
+    overflow-y: scroll;
+}
+
+
+/* ----------------------- */
+/* HEADER DO CONTEÚDO (Barra de Pesquisa e Filtros) - INDEX.HTML */
+/* ----------------------- */
+
+
+.content-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 20px;
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+/* Layout dos chips ativos */
+.filter-chips-container {
+    display: flex;
+    gap: 8px;
+    flex-grow: 1;
+    order: 2; 
+    margin-top: 5px; 
+    flex-basis: 100%; 
+    flex-wrap: wrap;
+    min-height: 30px; 
+}
+
+/* Estilo do botão de filtros */
+#open-filters-modal {
+    order: 3;
+    padding: 10px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background-color: var(--color-sidebar);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#open-filters-modal:hover {
+    background-color: #f0f0f0;
+}
+
+/* Container de Pesquisa */
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background-color: var(--color-sidebar);
+    max-width: 500px;
+    order: 1;
+}
+
+.search-container input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    background: transparent;
+    outline: none;
+}
+
+.search-container button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+
+/* Chips ativos no cabeçalho */
+.active-filter-chip {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+/* Estilo para chips INCLUÍDOS (Verde Suave) */
+.active-filter-chip.included {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Estilo para chips EXCLUÍDOS (Vermelho Suave) */
+.active-filter-chip.excluded {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.active-filter-chip button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+/* ----------------------- */
+/* CARTÃO DE PROPOSTA (POLL CARD) */
+/* ----------------------- */
+
+.poll-card {
+    background-color: var(--color-sidebar);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra moderna */
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 5px solid var(--color-primary); /* Detalhe lateral azul */
+}
+
+.poll-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.poll-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.poll-title {
+    font-size: 1.5em;
+    color: var(--color-primary); /* Título em Azul */
+    margin: 0;
+}
+
+.poll-description {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.poll-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.poll-meta {
+    margin-right: 10px;
+}
+
+
+/* ----------------------- */
+/* VOTAÇÃO (Upvote/Downvote) */
+/* ----------------------- */
+
+.poll-votes {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.vote-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--color-sidebar);
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.vote-button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+}
+
+.vote-button:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+/* Placar Central (Score) */
+.total-score-badge {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 5px 8px;
+    border-radius: 4px;
+    background-color: var(--color-secondary); /* Preto para o score */
+    color: white;
+    min-width: 40px;
+    text-align: center;
+}
+
+
+/* Estado de voto realizado */
+.vote-button.voted-up {
+    background-color: #4CAF50 !important; /* Verde para Upvote */
+    color: white;
+    border-color: #4CAF50;
+}
+.vote-button.voted-down {
+    background-color: #F44336 !important; /* Vermelho para Downvote */
+    color: white;
+    border-color: #F44336;
+}
+
+
+/* ----------------------- */
+/* ENQUETE (Múltipla Escolha - Botões) */
+/* ----------------------- */
+.poll-options-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.poll-option-btn {
+    /* Herda o estilo primário do base.css */
+    padding: 8px 15px;
+    font-size: 0.95em;
+}
+
+/* ----------------------- */
+/* GRÁFICO DE RESULTADOS (NOVO) */
+/* ----------------------- */
+
+.poll-results-chart {
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.result-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative; 
+    overflow: hidden; 
+    padding: 5px 0;
+}
+
+.option-label {
+    flex-basis: 100%;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.result-bar {
+    height: 100%; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #a4cff7; /* Azul Claro para a barra */
+    transition: width 0.5s ease-out;
+    border-radius: 4px;
+}
+
+.vote-count {
+    z-index: 2;
+    padding-left: 5px;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-left: auto;
+}
+
+.poll-total-votes {
+    text-align: right;
+    font-size: 0.9em;
+    color: #555;
+    padding-top: 5px;
+    border-top: 1px dashed #eee;
+    margin-top: 10px;
+}
+
+/* ----------------------- */
+/* AÇÕES (COMENTAR, EDITAR, DELETAR) */
+/* ----------------------- */
+.poll-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn.delete-btn {
+    color: #f44336;
+    border-color: #f44336;
+}
+
+.action-btn.delete-btn:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+
+/* ----------------------- */
+/* CHIPS DENTRO DO MODAL - Estilos específicos de aparência/cor */
+/* ----------------------- */
+
+#filter-options-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Estilo do Chip NO MODAL */
+.modal-filter-chip {
+    padding: 8px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    transition: all 0.2s;
+}
+
+/* Estado: EXCLUÍDO (Vermelho) */
+.modal-filter-chip.excluded {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    text-decoration: line-through;
+}
+
+/* Estado: INCLUÍDO (Azul) */
+.modal-filter-chip.included {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+

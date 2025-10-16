@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Voz da Comunidade</title>
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="/public/css/user.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="sidebar-header">
+                <div class="user-icon" id="sidebar-user-avatar"></div> 
+                <span id="sidebar-user-name">Usuário</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="index.html">Suas Votações / Enquetes</a>
+                <a href="create.html">Criar Votação / Enquete</a>
+                <a href="notifications.html">Notificações <span id="unread-count-badge" class="badge"></span></a>
+                <a href="settings.html" style="background-color: #d0e8ff; font-weight: bold;">Configurações</a>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#">Suporte</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-header">
+            <h1>Configurações do Usuário</h1>
+        </div>
+        
+        <div class="content-card">
+            
+            <div class="profile-header">
+                <div class="profile-avatar" id="main-profile-avatar"><span>👤</span></div> 
+                <div class="profile-info">
+                    <h2 id="profile-name">Nome do Usuário</h2>
+                    <p id="profile-email">email@comunidade.com</p>
+                </div>
+            </div>
+
+            <form id="settings-form" class="settings-form">
+                
+                <h3>Editar Perfil</h3>
+
+                <div class="form-group">
+                    <label for="user-name">Nome Completo</label>
+                    <input type="text" id="user-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-email">Email (Não Editável)</label>
+                    <input type="email" id="user-email" value="usuario.padrao@comunidade.com" disabled>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-bio">Biografia / Sobre Você</label>
+                    <textarea id="user-bio" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Foto de Perfil</label>
+                    <div class="avatar-upload-container">
+                        <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
+                        <button type="button" class="action-btn" onclick="document.getElementById('avatar-upload').click()">
+                            Escolher Imagem
+                        </button>
+                        <button type="button" class="action-btn delete-btn" id="remove-avatar-btn" style="color:#F44336; border-color:#F44336;">
+                            Remover Foto
+                        </button>
+                    </div>
+                    <small style="color: #777;">Tamanho máximo de 1MB. (Apenas simulação Base64)</small>
+                </div>
+
+
+                <h3>Preferências e Segurança</h3>
+
+                <div class="password-change-section">
+                    <h4>Mudar Senha</h4>
+                    <div class="form-group">
+                        <label for="current-password">Senha Atual</label>
+                        <input type="password" id="current-password" placeholder="Digite sua senha atual">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Nova Senha</label>
+                        <input type="password" id="new-password" placeholder="Mínimo 6 caracteres">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmar Nova Senha</label>
+                        <input type="password" id="confirm-password" placeholder="Repita a nova senha">
+                    </div>
+                    <button type="button" class="action-btn" id="change-password-btn">Mudar Senha</button>
+                </div>
+                
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="notifications-toggle">Receber Notificações:</label>
+                    <input type="checkbox" id="notifications-toggle">
+                </div>
+
+                <div class="form-group action-buttons" style="border-top: 1px solid #eee; padding-top: 20px;">
+                    <button type="submit" class="primary-btn">Salvar Alterações de Perfil</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/scripts/utils.js"></script>
+    <script src="/public/scripts/user.js"></script> 
+
+</body>
+</html>
