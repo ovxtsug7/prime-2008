@@ -1,1 +1,0 @@
-# Voz-da-Comunidade---Sistema-de-Vota-o-Local
